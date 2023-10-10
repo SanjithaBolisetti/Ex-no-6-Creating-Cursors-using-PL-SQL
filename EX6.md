@@ -11,14 +11,38 @@
 ### Program:
 
 ### Create employee table
-![image](https://github.com/SanjithaBolisetti/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/119393633/e819694b-6614-4156-a0a6-ac7f58869d87)
-![image](https://github.com/SanjithaBolisetti/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/119393633/c25a9ed6-918d-45e8-a507-99f56552d86b)
-
+```
+create table employee3(empid number,empname varchar(10),dept varchar(10),salary number);
+insert into employee3 values(101,'Sadhana','Manager',80000);
+insert into employee3 values(102,'Harshitha','HR',85000);
+insert into employee3 values(103,'Rithika','IT',70000);
+```
 
 ### PLSQL Cursor code
-![image](https://github.com/SanjithaBolisetti/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/119393633/b5dfc8d7-0545-4e68-8a0e-f498b35ca774)
-
-
+```
+set serveroutput on
+declare
+cursor employee3_cursor is
+select empid,empname,dept,salary
+from employee3;
+emp_id number;
+emp_name varchar(20);
+emp_dept varchar(20);
+emp_salary number;
+begin
+open employee3_cursor;
+loop
+fetch employee3_cursor into emp_id,emp_name,emp_dept,emp_salary;
+exit when employee3_cursor%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE('Employee ID: ' || emp_id);
+ DBMS_OUTPUT.PUT_LINE('Employee Name: ' || emp_name);
+DBMS_OUTPUT.PUT_LINE('Department: ' || emp_dept);
+DBMS_OUTPUT.PUT_LINE('Salary: ' || emp_salary);
+end loop;
+close employee3_cursor;
+end;
+/
+```
 ### Output:
 ![image](https://github.com/SanjithaBolisetti/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/119393633/97e4f248-16e0-41c7-a1bd-f5855dd2e278)
 
