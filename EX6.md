@@ -10,7 +10,6 @@ To create a cursor using PL/SQL.
 4. Close the cursor
 
 ### Program:
-
 Create employee table
 ```
 create table employee3(empid number,empname varchar(10),dept varchar(10),salary number);
@@ -45,9 +44,7 @@ end;
 /
 ```
 ### Output:
-
 ![image](https://github.com/SanjithaBolisetti/Ex-no-6-Creating-Cursors-using-PL-SQL/assets/119393633/97e4f248-16e0-41c7-a1bd-f5855dd2e278)
-
 
 ### Result:
 THE PROGRAM HAS BEEN IMPLEMENTED SUCCESSFULLY.
